@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BiletiApp.Domain\BiletiApp.Domain.csproj" />
-    <ProjectReference Include="..\BiletiApp.Repository\BiletiApp.Repository.csproj" />
     <ProjectReference Include="..\BiletiApp.Service\BiletiApp.Service.csproj" />
   </ItemGroup>
 

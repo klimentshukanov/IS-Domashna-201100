@@ -32,7 +32,6 @@
       "BiletiApp.Web/1.0.0": {
         "dependencies": {
           "BiletiApp.Domain": "1.0.0",
-          "BiletiApp.Repository": "1.0.0",
           "BiletiApp.Service": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.32",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.32",
