@@ -14,26 +14,29 @@ namespace BiletiApp.Web.Controllers
 {
     public class BiletController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly IBiletService _productService;
+        //private readonly ApplicationDbContext _context;
+        private readonly IBiletService _biletService;
         private readonly ILogger<BiletController> _logger;
 
-        public BiletController(ApplicationDbContext context)
+        public BiletController(/*ApplicationDbContext context,*/ ILogger<BiletController> logger, IBiletService biletService)
         {
-            _context = context;
+            //_context = context;
+            _logger = logger;
+            _biletService = biletService;
         }
 
         // GET: Bilet
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Bileti.ToListAsync());
+            return View(_biletService.ListajBileti());
         }
 
-        public async Task<IActionResult> List(DateTime Datum)
+        public IActionResult List(DateTime Datum)
         {
             ViewData["CurrentFilter"] = Datum;
-            List<Bilet> bileti = await _context.Bileti.ToListAsync(); //da se promeni
-            bileti=bileti.Where(b => b.BrDostapni>0).ToList();
+            //List<Bilet> bileti = await _context.Bileti.ToListAsync();
+            List<Bilet> bileti = _biletService.ListajBileti();
+            bileti =bileti.Where(b => b.BrDostapni>0).ToList();
             if(Datum!=DateTime.MinValue)
             {
                 bileti=bileti.Where(b => b.Datum.Date==Datum.Date).ToList();
@@ -42,15 +45,16 @@ namespace BiletiApp.Web.Controllers
         }
 
         // GET: Bilet/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        
+        public IActionResult Details(Guid? id)
         {
+            _logger.LogInformation("User Request -> Get Details For Product");
             if (id == null)
             {
                 return NotFound();
             }
 
-            var bilet = await _context.Bileti
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var bilet = this._biletService.DetaliZaBilet(id);
             if (bilet == null)
             {
                 return NotFound();
@@ -59,29 +63,8 @@ namespace BiletiApp.Web.Controllers
             return View(bilet);
         }
 
-        /*// GET: Bilet/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Bilet/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Ime,Opis,Cena,BrDostapni,Datum")] Bilet bilet)
-        {
-            if (ModelState.IsValid)
-            {
-                bilet.Id = Guid.NewGuid();
-                _context.Add(bilet);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(bilet);
-        }*/
-
+        // GET: Bilet/Create
+        
         public IActionResult Create()
         {
             _logger.LogInformation("User Request -> Get create form for Product!");
@@ -99,7 +82,7 @@ namespace BiletiApp.Web.Controllers
             if (ModelState.IsValid)
             {
                 bilet.Id = Guid.NewGuid();
-                this._productService.KreirajBilet(bilet);
+                this._biletService.KreirajBilet(bilet);
                 return RedirectToAction(nameof(Index));
             }
             return View(bilet);
@@ -107,28 +90,32 @@ namespace BiletiApp.Web.Controllers
 
 
         // GET: Bilet/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+
+        public IActionResult Edit(Guid? id)
         {
+            _logger.LogInformation("User Request -> Get edit form for Product!");
             if (id == null)
             {
                 return NotFound();
             }
 
-            var bilet = await _context.Bileti.FindAsync(id);
-            if (bilet == null)
+            var product = this._biletService.DetaliZaBilet(id);
+            if (product == null)
             {
                 return NotFound();
             }
-            return View(bilet);
+            return View(product);
         }
 
-        // POST: Bilet/Edit/5
+        // POST: Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Ime,Opis,Cena,BrDostapni,Datum")] Bilet bilet)
+        public IActionResult Edit(Guid id, [Bind("Id,Ime,Opis,Cena,BrDostapni,Datum")] Bilet bilet)
         {
+            _logger.LogInformation("User Request -> Update Product in DataBase!");
+
             if (id != bilet.Id)
             {
                 return NotFound();
@@ -138,12 +125,11 @@ namespace BiletiApp.Web.Controllers
             {
                 try
                 {
-                    _context.Update(bilet);
-                    await _context.SaveChangesAsync();
+                    this._biletService.AzhurirajBilet(bilet);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BiletExists(bilet.Id))
+                    if (!PostoiBilet(bilet.Id))
                     {
                         return NotFound();
                     }
@@ -158,15 +144,16 @@ namespace BiletiApp.Web.Controllers
         }
 
         // GET: Bilet/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public IActionResult Delete(Guid? id)
         {
+            _logger.LogInformation("User Request -> Get delete form for Product!");
+
             if (id == null)
             {
                 return NotFound();
             }
 
-            var bilet = await _context.Bileti
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var bilet = this._biletService.DetaliZaBilet(id);
             if (bilet == null)
             {
                 return NotFound();
@@ -175,20 +162,20 @@ namespace BiletiApp.Web.Controllers
             return View(bilet);
         }
 
-        // POST: Bilet/Delete/5
+        // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public IActionResult DeleteConfirmed(Guid id)
         {
-            var bilet = await _context.Bileti.FindAsync(id);
-            _context.Bileti.Remove(bilet);
-            await _context.SaveChangesAsync();
+            _logger.LogInformation("User Request -> Delete Product in DataBase!");
+
+            this._biletService.IzbrishiBilet(id);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BiletExists(Guid id)
+        private bool PostoiBilet(Guid id)
         {
-            return _context.Bileti.Any(e => e.Id == id);
+            return this._biletService.DetaliZaBilet(id) != null;
         }
     }
 }

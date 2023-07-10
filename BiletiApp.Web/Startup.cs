@@ -1,4 +1,7 @@
 using BiletiApp.Domain.Identity;
+using BiletiApp.Repository.Implementation;
+using BiletiApp.Repository.Interface;
+using BiletiApp.Service.Interface;
 using BiletiApp.Web.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,6 +36,17 @@ namespace BiletiApp.Web
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<CustomUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
+            services.AddScoped(typeof(IOrderRepository), typeof(OrderRepository));
+
+            services.AddTransient<IBiletService, Service.Implementation.BiletService>();
+            services.AddTransient<IShoppingCartService, Service.Implementation.ShoppingCartService>();
+            services.AddTransient<IOrderService, Service.Implementation.OrderService>();
+
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
