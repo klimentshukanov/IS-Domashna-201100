@@ -1,0 +1,15 @@
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\bin\Debug\netcoreapp3.1\BiletiApp.Service.deps.json
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\bin\Debug\netcoreapp3.1\BiletiApp.Service.dll
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\bin\Debug\netcoreapp3.1\BiletiApp.Service.pdb
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\obj\Debug\netcoreapp3.1\BiletiApp.Service.csproj.AssemblyReference.cache
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\obj\Debug\netcoreapp3.1\BiletiApp.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\obj\Debug\netcoreapp3.1\BiletiApp.Service.AssemblyInfoInputs.cache
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\obj\Debug\netcoreapp3.1\BiletiApp.Service.AssemblyInfo.cs
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\obj\Debug\netcoreapp3.1\BiletiApp.Service.csproj.CoreCompileInputs.cache
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\obj\Debug\netcoreapp3.1\BiletiApp.Service.dll
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\obj\Debug\netcoreapp3.1\BiletiApp.Service.pdb
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\bin\Debug\netcoreapp3.1\BiletiApp.Domain.dll
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\bin\Debug\netcoreapp3.1\BiletiApp.Repository.dll
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\bin\Debug\netcoreapp3.1\BiletiApp.Domain.pdb
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\bin\Debug\netcoreapp3.1\BiletiApp.Repository.pdb
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Service\obj\Debug\netcoreapp3.1\BiletiApp.Service.csproj.CopyComplete

@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20230710083820_OrderImpl.cs" />
+    <Compile Remove="Data\Migrations\20230710083820_OrderImpl.Designer.cs" />
+    <Compile Remove="Data\Migrations\20230710084335_Test.cs" />
+    <Compile Remove="Data\Migrations\20230710084335_Test.Designer.cs" />
+    <Compile Remove="Data\Migrations\20230710140752_BigModelChanges.cs" />
+    <Compile Remove="Data\Migrations\20230710140752_BigModelChanges.Designer.cs" />
+    <Compile Remove="Data\Migrations\20230710141117_BigModelChanges.cs" />
+    <Compile Remove="Data\Migrations\20230710141117_BigModelChanges.Designer.cs" />
+    <Compile Remove="Data\Migrations\20230710141515_BigModelChanges.cs" />
+    <Compile Remove="Data\Migrations\20230710141515_BigModelChanges.Designer.cs" />
+    <Compile Remove="Data\Migrations\20230710143722_PrvaMigracija.cs" />
+    <Compile Remove="Data\Migrations\20230710143722_PrvaMigracija.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+	 
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.32" />
+	 
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.32" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BiletiApp.Domain\BiletiApp.Domain.csproj" />
+	</ItemGroup>
+</Project>

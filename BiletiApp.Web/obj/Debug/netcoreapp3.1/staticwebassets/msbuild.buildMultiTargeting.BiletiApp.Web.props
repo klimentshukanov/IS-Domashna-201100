@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\BiletiApp.Web.props" />
+</Project>

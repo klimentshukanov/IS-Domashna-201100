@@ -1,0 +1,13 @@
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Repository\bin\Debug\netcoreapp3.1\BiletiApp.Repository.deps.json
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Repository\bin\Debug\netcoreapp3.1\BiletiApp.Repository.dll
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Repository\bin\Debug\netcoreapp3.1\BiletiApp.Repository.pdb
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Repository\obj\Debug\netcoreapp3.1\BiletiApp.Repository.csproj.AssemblyReference.cache
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Repository\obj\Debug\netcoreapp3.1\BiletiApp.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Repository\obj\Debug\netcoreapp3.1\BiletiApp.Repository.AssemblyInfoInputs.cache
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Repository\obj\Debug\netcoreapp3.1\BiletiApp.Repository.AssemblyInfo.cs
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Repository\obj\Debug\netcoreapp3.1\BiletiApp.Repository.csproj.CoreCompileInputs.cache
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Repository\obj\Debug\netcoreapp3.1\BiletiApp.Repository.dll
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Repository\obj\Debug\netcoreapp3.1\BiletiApp.Repository.pdb
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Repository\bin\Debug\netcoreapp3.1\BiletiApp.Domain.dll
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Repository\bin\Debug\netcoreapp3.1\BiletiApp.Domain.pdb
+C:\Kliment\Programi\Visual Studio\Integrirani sistemi\IS-Domashna-201100\BiletiApp.Repository\obj\Debug\netcoreapp3.1\BiletiApp.Repository.csproj.CopyComplete

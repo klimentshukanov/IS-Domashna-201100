@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BiletiApp.Domain.DomainModels.Bilet>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="mb-3">Tickets</h1>
+
+<form asp-action="List" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Prebaruvaj spored datum: <input type="date" name="Datum" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-dark" />
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrDostapni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Datum)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrDostapni)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Datum)
+                </td>
+            <td>
+                <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-id="@item.Id">Add to Cart</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
